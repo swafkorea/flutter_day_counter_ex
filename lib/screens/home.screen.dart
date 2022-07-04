@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  static final now = DateTime.now();
+  static final now = DateTime.now(); // DateTime.now()를 재사용 하기위해 만든 변수
   DateTime selectedDate = DateTime(now.year, now.month, now.day);
 
   @override
@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   /// 날짜 선택되었을때 동작 callback
+  /// _TopPart 위젯의 parameter로 전달됨
   void onSelectedDateChanged(DateTime date) {
     setState(() {
       selectedDate = date;
@@ -112,7 +113,7 @@ class _TopPart extends StatelessWidget {
                       mode: CupertinoDatePickerMode.date,
                       minimumDate: DateTime(now.year, now.month, now.day),
                       initialDateTime: selectedDate,
-                      onDateTimeChanged: onDateChanged,
+                      onDateTimeChanged: onDateChanged, // widget parameter로 전달받은 callback function
                     ),
                   ),
                 ),
